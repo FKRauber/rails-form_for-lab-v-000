@@ -11,7 +11,7 @@ class SchoolClassesController < ActionController::Base
     @school_class = SchoolClass.new
   end
   def create
-    @school_class = SchoolClass.new(params.require(:school_class).require(:title, :room_number))
+    @school_class = SchoolClass.new(params.require(:school_class).permit(:title, :room_number))
     redirect_to school_class_path(@school_class)
   end
 

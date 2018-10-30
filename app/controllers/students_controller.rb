@@ -11,7 +11,7 @@ class StudentsController < ActionController::Base
     @student = Student.new
   end
   def create
-    @student = Student.create(params.require(:student))
+    @student = Student.new(params.require(:student).permit(:first_name, :last_name))
     redirect_to student_path(@student)
   end
 
